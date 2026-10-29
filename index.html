@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Theme Name: Obsidian Gold (Titanium V.Max V4 - Clean Result Edition) -->
+    <title>🌟 التحدي الأكبر 🚀</title>
+
+    <meta property="og:title" content="🌟 التحدي الأكبر 🚀">
+    <meta property="og:description" content="تحدي استثنائي مصمم لقياس تركيزك الحقيقي وقوة ملاحظتك تحت الضغط. هل تقبل التحدي؟">
+    <meta property="og:image" content="https://dummyimage.com/1200x630/0A0A0A/F59E0B.png&text=Elite+Challenge">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        /* ========================================================
+           💎 UI THEME: Obsidian Gold (Titanium V.Max V4)
+           ======================================================== */
+        :root {
+            --bg-dark: #0A0A0A; 
+            --glass-bg: rgba(24, 24, 27, 0.7); 
+            --glass-border: rgba(245, 158, 11, 0.25); 
+            --text-main: #F8FAFC; 
+            --text-muted: #A1A1AA; 
+            --q-font-size: 22px; 
+            --error-color: #F43F5E; 
+            --success-color: #10B981; 
+            --accent: #F59E0B; 
+            --accent-glow: rgba(245, 158, 11, 0.4);
+            --card-bg: rgba(39, 39, 42, 0.6); 
+            --input-bg: rgba(9, 9, 11, 0.8);
+        }
+
+        body.theme-1 { --accent: #F59E0B; --accent-glow: rgba(245, 158, 11, 0.4); } 
+        body.theme-2 { --accent: #8B5CF6; --accent-glow: rgba(139, 92, 246, 0.4); } 
+        body.theme-3 { --accent: #3B82F6; --accent-glow: rgba(59, 130, 246, 0.4); } 
+        body.theme-4 { --accent: #10B981; --accent-glow: rgba(16, 185, 129, 0.4); } 
+        body.theme-5 { --accent: #D946EF; --accent-glow: rgba(217, 70, 239, 0.4); } 
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body, .main-container, .review-item, .explanation-box, .print-options-grid, .glass-panel, .accent-text, .btn, .timer-box, .badge-award { 
+            -webkit-user-select: none !important; 
+            -moz-user-select: none !important; 
+            -ms-user-select: none !important; 
+            user-select: none !important; 
+            transition: 0.5s ease;
+        }
+        input#studentName { 
+            -webkit-user-select: auto !important; 
+            -moz-user-select: auto !important; 
+            -ms-user-select: auto !important; 
+            user-select: auto !important; 
+            pointer-events: auto !important;
+        }
+
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-dark); color: var(--text-main); min-height: 100vh; padding: 20px 10px; overflow-x: hidden; }
+
+        .bg-grid { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 40px 40px; }
+        .bg-orb { position: fixed; top: -10%; left: 50%; transform: translateX(-50%); width: 70vw; height: 70vw; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); z-index: 0; filter: blur(140px); pointer-events: none; }
+
+        .main-container { width: 100%; max-width: 850px; margin: 0 auto; background: var(--glass-bg); backdrop-filter: blur(25px); border-radius: 24px; border: 1px solid var(--glass-border); box-shadow: 0 0 50px rgba(0,0,0,0.9), inset 0 1px 1px rgba(255,255,255,0.05); display: flex; flex-direction: column; position: relative; z-index: 10; }
+
+        header { padding: 75px 20px 30px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative; }
+        
+        .top-bar-controls { position: absolute; top: 20px; left: 0; width: 100%; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; z-index: 20; direction: ltr !important; }
+        .left-controls { display: flex; align-items: center; gap: 8px; }
+        .right-controls { display: flex; align-items: center; gap: 8px; }
+        
+        header img { 
+            width: 115px; height: 115px; object-fit: contain; 
+            background-color: #FFFFFF !important; padding: 6px; 
+            border-radius: 50%; border: 3px solid var(--accent); 
+            box-shadow: 0 0 25px var(--accent-glow); 
+            cursor: pointer; flex-shrink: 0; aspect-ratio: 1/1; 
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        header img:hover { transform: scale(1.08) rotate(5deg); }
+
+        header h1 { font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 900; margin: 10px 0 0; direction: ltr; text-shadow: 0 2px 10px rgba(0,0,0,0.8); color: #FFF;}
+        header .job-title { font-size: 15px; font-weight: 800; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; direction: ltr;}
+        header .slogan { font-family: 'Outfit', sans-serif; font-size: 16px; font-style: italic; color: var(--accent); margin: 5px 0 10px 0; direction: ltr; unicode-bidi: isolate; text-shadow: 0 0 15px var(--accent-glow);}
+        .vip-phone { background: linear-gradient(135deg, var(--accent), #18181B); color: #FFF; font-family: 'Outfit', sans-serif; padding: 8px 28px; border-radius: 30px; font-weight: 900; font-size: 16px; letter-spacing: 2px; box-shadow: 0 0 20px var(--accent-glow); direction: ltr; border: 1px solid rgba(255,255,255,0.1); margin-top: 5px;}
+
+        .timer-box { background: var(--input-bg); color: var(--accent); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0 16px; height: 44px; display: flex; align-items: center; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.8); letter-spacing: 1px;}
+        .time-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; animation: blink 1s infinite; box-shadow: 0 0 10px var(--accent);}
+        .timer-box.danger { color: var(--error-color); border-color: var(--error-color); box-shadow: 0 0 15px rgba(244,63,94,0.4);}
+        .timer-box.danger .time-dot { background: var(--error-color); box-shadow: 0 0 10px var(--error-color);}
+        .hidden-timer { color: transparent !important; box-shadow: none; border-color: transparent;}
+        
+        .icon-btn { background: var(--input-bg); color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; width: 44px; height: 44px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; outline: none; transition: 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.8); }
+        .icon-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(255,255,255,0.05); box-shadow: 0 0 15px var(--accent-glow);}
+
+        /* Smart Cheers */
+        .cheer-wrapper { position: fixed; top: -120px; right: 20px; z-index: 99999; pointer-events: none; transition: top 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .cheer-wrapper.show { top: 20px; }
+        .cheer-bubble { background: var(--input-bg); backdrop-filter: blur(20px); border-radius: 16px; padding: 18px 24px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 15px; border: 1px solid rgba(255,255,255,0.1); border-right: 5px solid var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.9); direction: rtl; }
+        .cheer-bubble img { grid-column: 2; grid-row: 1 / span 3; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent); background: #FFFFFF !important; padding: 4px; object-fit: contain; aspect-ratio: 1/1; }
+        .cheer-en { font-family:'Outfit', sans-serif; font-size:15px; font-weight:900; direction:ltr; text-align:left; color: #FFF;}
+        .cheer-separator { grid-column: 1; width: 100%; height: 1px; background: rgba(255,255,255,0.1); border-bottom: 1px dashed rgba(255,255,255,0.05); margin: 6px 0;}
+        .cheer-ar { font-family:'Cairo', sans-serif; font-size:14px; font-weight:800; color:var(--accent); direction:rtl; text-align:right;}
+
+        @keyframes blink { 0%, 100% {opacity:1;} 50% {opacity:0.2;} }
+
+        .content-body { padding: 40px 30px; flex: 1; position: relative;}
+        #start-screen { text-align: center; }
+        .welcome-card { background: var(--card-bg); border-radius: 20px; padding: 45px 25px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+        .welcome-card h3 { font-size: 26px; font-weight: 900; color: var(--accent); margin-bottom: 20px; text-shadow: 0 0 15px var(--accent-glow);}
+        
+        .ta-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+        .ta-btn { background: var(--input-bg); color: var(--text-muted); border: 2px solid rgba(255,255,255,0.1); padding: 16px; font-size: 16px; border-radius: 14px; font-weight: 800; font-family: 'Outfit', 'Cairo'; cursor: pointer; transition: 0.3s;}
+        .ta-btn.active { background: rgba(255,255,255,0.05); color: var(--accent); border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); transform: scale(1.02); }
+
+        .avatar-grid { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 15px; flex-wrap: nowrap; overflow-x: auto; padding: 15px 5px 25px 5px;}
+        .avatar-option { font-size: 34px; padding: 14px 20px; background: var(--input-bg); border-radius: 16px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.6); transition: 0.3s; flex-shrink: 0;}
+        .avatar-option.selected { background: rgba(255,255,255,0.1); border-color: var(--accent); box-shadow: 0 0 25px var(--accent-glow); transform: scale(1.1) translateY(-5px);}
+
+        .input-group input { width: 100%; padding: 22px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.15); background: var(--input-bg); color: var(--text-main); font-size: 18px; outline: none; margin-bottom: 30px; font-weight: 800; text-align: center; box-shadow: inset 0 2px 8px rgba(0,0,0,0.9); transition: 0.3s; }
+        .input-group input:focus { border-color: var(--accent); box-shadow: inset 0 2px 8px rgba(0,0,0,0.9), 0 0 20px var(--accent-glow); }
+        .input-group input::placeholder { color: #52525B; }
+
+        #quiz-screen, #result-screen { display: none; }
+        
+        .hud-progress-wrapper { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 20px 24px 30px; margin-bottom: 35px; box-shadow: 0 10px 25px rgba(0,0,0,0.6); position: relative; }
+        .hud-progress-wrapper::before { content: ''; position: absolute; top: 0; right: 0; width: 6px; height: 100%; background: var(--accent); border-radius: 0 16px 16px 0; box-shadow: 0 0 15px var(--accent-glow);}
+        .hud-stats { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; direction: rtl; flex-wrap: wrap; gap: 10px; }
+        .hud-student { display: flex; align-items: center; gap: 14px; font-weight: 800; font-size: 17px; color: #FFF;}
+        .hud-student .avatar-ring { background: var(--input-bg); border: 2px solid var(--accent); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px var(--accent-glow); font-size: 24px; flex-shrink: 0;}
+        .hud-counter { font-family: 'Outfit'; font-weight: 900; font-size: 18px; color: var(--accent); direction: ltr; text-shadow: 0 0 10px var(--accent-glow);}
+        .hud-bar-container { margin-top: 30px; height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; position: relative; direction: ltr; margin-right: 25px; margin-left: 25px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.9); }
+        .hud-bar-fill { position: relative; height: 100%; background: linear-gradient(90deg, var(--accent), #F8FAFC); width: 0%; transition: width 0.6s ease; border-radius: 4px; box-shadow: 0 0 15px var(--accent-glow);}
+        .hud-avatar-runner { position: absolute; right: -22px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; background: var(--input-bg); border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 0 15px var(--accent-glow); flex-shrink: 0; z-index: 5; transition: 0.6s ease;}
+
+        .station-card { background: var(--card-bg); padding: 40px 30px; border-radius: 20px; margin-bottom: 35px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
+        .question-text { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; direction: ltr; width: 100%; }
+        /* 🛡️ BULLETPROOF ENCAPSULATION */
+        .question-text-wrapper { flex: 1; font-family: 'Outfit'; font-size: var(--q-font-size); font-weight: 800; line-height: 1.7; transition: 0.3s; width: 100%; display: block; text-align: left; direction: ltr; color: #FFF;}
+        
+        .options-list { display: flex; flex-direction: column; gap: 18px; direction: ltr; }
+        .option-item { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-left: 5px solid #3F3F46; border-radius: 14px; padding: 20px 24px; cursor: pointer; display: flex; align-items: center; gap: 20px; transition: 0.2s; }
+        .option-item.selected { background: rgba(255,255,255,0.08); border-color: var(--accent); border-left: 6px solid var(--accent); box-shadow: 0 0 25px var(--accent-glow); }
+        .opt-letter { background: var(--input-bg); color: var(--accent); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Outfit'; font-weight: 900; font-size: 18px; border: 1px solid rgba(255,255,255,0.1); flex-shrink:0;}
+        .option-item.selected .opt-letter { background: var(--accent); color: #0A0A0A; border-color: var(--accent); text-shadow: none;}
+        .opt-text { font-family: 'Outfit'; font-weight: 600; font-size: 19px; color: var(--text-muted); direction: ltr; text-align: left;}
+        .option-item.selected .opt-text { color: #FFF; }
+
+        .action-btns { display: flex; flex-direction: row-reverse; justify-content: space-between; gap: 20px; direction: ltr;}
+        .btn { padding: 20px 30px; border-radius: 16px; font-weight: 900; font-size: 17px; border: 1px solid var(--accent); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Outfit', 'Cairo'; text-transform: uppercase; transition: 0.3s; }
+        .btn-outline { background: transparent; color: var(--accent); border-color: rgba(255,255,255,0.15); color: #FFF;}
+        .btn-outline:hover:not(:disabled) { background: rgba(255,255,255,0.05); border-color: var(--accent); color: var(--accent); box-shadow: 0 0 25px var(--accent-glow);}
+        .btn-prev { min-width: 140px; border-color: rgba(255,255,255,0.05); color: var(--text-muted);}
+        .btn-prev:hover:not(:disabled) { border-color: var(--text-main); color: var(--text-main); background:rgba(255,255,255,0.05);}
+        .btn-prev:disabled { opacity: 0.3; cursor: not-allowed;}
+        .btn-solid { background: linear-gradient(135deg, var(--accent), #0A0A0A); color: #FFFFFF; box-shadow: 0 0 30px var(--accent-glow); flex: 1; font-size:19px;}
+        .btn-solid:hover { transform: translateY(-3px); box-shadow: 0 0 40px var(--accent-glow);}
+
+        .score-card { background: var(--card-bg); border-radius: 24px; padding: 50px 25px; text-align: center; margin-bottom: 40px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 20px 50px rgba(0,0,0,0.6);}
+        .score-circle { width: 240px; height: 240px; border-radius: 50%; margin: 0 auto 35px; display: flex; align-items: center; justify-content: center; font-family: 'Outfit'; font-size: 65px; font-weight: 900; color: #FFF; background: linear-gradient(135deg, var(--accent), #0A0A0A); border: 12px solid var(--bg-dark); box-shadow: 0 0 50px var(--accent-glow), 0 0 0 5px var(--accent); direction: ltr;}
+        
+        #student-display-name { font-size: 24px; font-weight: 900; color: #FFF; margin-bottom: 25px; display: flex; align-items: center; justify-content: center; gap: 10px;}
+        .result-avatar { font-size: 28px; background: var(--input-bg); border: 2px solid var(--accent); border-radius: 50%; width: 50px; height: 50px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 15px var(--accent-glow);}
+        
+        .scratch-container { position: relative; display: inline-block; margin-top: 10px; border-radius: 16px; overflow: hidden; box-shadow: 0 0 35px rgba(0,0,0,0.9); border: 1px solid rgba(255,255,255,0.1);}
+        .badge-award { display: inline-block; background: linear-gradient(135deg, var(--accent), #0A0A0A); color: #FFFFFF; padding: 24px 40px; font-weight: 900; font-size: 24px; min-width: 320px; min-height: 85px; font-family: 'Outfit', 'Cairo'; }
+        #scratch-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: crosshair; z-index: 5; }
+
+        .result-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 50px;}
+        .result-actions .btn { width: 100%; font-size: 15px; padding: 18px; border-radius: 14px;}
+        .btn-full { grid-column: span 2; }
+        .btn-whatsapp { background: #10B981; color: #fff; border-color: #10B981; }
+
+        .review-item { background: var(--card-bg); border-radius: 16px; padding: 30px; margin-bottom: 25px; text-align: left; direction: ltr; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 5px 20px rgba(0,0,0,0.6); page-break-inside: avoid;}
+        .review-item.is-correct { border-left: 6px solid var(--success-color); }
+        .review-item.is-wrong { border-left: 6px solid var(--error-color); }
+        .explanation-box { background: rgba(255,255,255,0.02); border-radius: 12px; padding: 22px; margin-top: 20px; border-right: 4px solid var(--accent); display: flex; flex-direction: column; gap: 16px; border: 1px solid rgba(255,255,255,0.05);}
+        
+        #cheat-modal, #pause-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 10, 0.9); z-index: 999999; align-items: center; justify-content: center; backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); }
+        .cheat-content { background: var(--card-bg); padding: 50px; border-radius: 24px; text-align: center; max-width: 90%; width: 500px; border: 2px solid var(--error-color); box-shadow: 0 0 50px rgba(244,63,94,0.3); }
+
+        /* ========================================================
+           🖨️ PRINT MASTER ENGINE V.MAX (A4, Header, Footer, Watermark)
+           ======================================================== */
+        #print-container { display: none; }
+
+        @media print {
+            @page { size: A4; margin: 0; }
+            body { background: #fff !important; color: #000 !important; margin: 0; padding: 0; }
+            .no-print, #app-container, .bg-orb, .bg-grid { display: none !important; }
+            
+            #print-container { display: block !important; width: 100%; max-width: 210mm; margin: 0 auto; background: transparent; }
+            
+            table.print-table { width: 100%; border-collapse: collapse; }
+            thead.print-thead { display: table-header-group; }
+            tfoot.print-tfoot { display: table-footer-group; }
+            tbody.print-tbody { display: table-row-group; }
+            
+            .header-content { display: flex; align-items: center; gap: 15px; padding: 15mm 15mm 5mm; border-bottom: 2px solid #000; margin-bottom: 5mm; justify-content: flex-start; text-align: left; direction: ltr; }
+            .header-content img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #000; }
+            .header-content div strong { font-family: 'Outfit'; font-size: 26px; font-weight: 900; display: block; color: #000; line-height: 1.2; text-align: left; }
+            .header-content div span { font-family: 'Outfit'; font-size: 14px; color: #333; text-transform: uppercase; letter-spacing: 1px; text-align: left; display: block;}
+
+            .footer-content { display: flex; justify-content: space-between; align-items: center; padding: 5mm 15mm 15mm; border-top: 2px solid #000; font-family: 'Outfit'; font-weight: bold; font-size: 14px; color: #000; direction: ltr;}
+            .page-number:after { counter-increment: page; content: "Page " counter(page); }
+
+            .print-watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.08; z-index: 9999; pointer-events: none; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; text-align: center; }
+            .print-watermark img { width: 350px; height: 350px; border-radius: 50%; filter: grayscale(100%); display: block; margin: 0 auto;}
+            .print-watermark h1 { display: none !important; }
+
+            .exam-title-box { text-align: left; direction: ltr; margin-bottom: 10mm; padding: 0 15mm;}
+            .exam-title-box h2 { font-family: 'Outfit'; font-size: 28px; font-weight: 900; color: #000; text-transform: uppercase; margin-bottom: 15px; text-align: left;}
+            .student-info-row { display: flex; align-items: flex-end; justify-content: flex-start; gap: 30px; font-family: 'Outfit', 'Cairo'; font-size: 16px; font-weight: 700; width: 100%; direction: ltr; text-align: left; }
+            .info-field { display: flex; align-items: flex-end; }
+            .name-field { flex: 2.5; }
+            .score-field { flex: 1; }
+            .info-label { margin-right: 10px; white-space: nowrap; padding-bottom: 2px; }
+            .info-line { border-bottom: 2px dotted #000; flex: 1; min-height: 20px; padding-bottom: 2px; text-align: center; color: #000; font-size: 18px;}
+
+            .print-q-container { padding: 0 15mm; }
+            .print-q-item { page-break-inside: avoid; margin-bottom: 25px; font-family: 'Outfit', 'Cairo'; }
+            .print-q-text { font-size: 18px; font-weight: 800; color: #000; margin-bottom: 12px; direction: ltr; text-align: left; display: block; width: 100%; }
+            .print-options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; direction: ltr; text-align: left;}
+            .print-opt-item { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; color: #000;}
+            .print-opt-letter { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px;}
+            .print-rule-box { display: none; }
+
+            /* MODE 1: Blank Exam */
+            body.print-blank-mode .ui-ans-box, body.print-blank-mode .explanation-box { display: none !important; }
+            body.print-blank-mode .print-options-grid { display: grid !important; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; font-family: 'Outfit'; font-size: 16px; font-weight: 600; }
+            body.print-blank-mode .review-item.is-correct, body.print-blank-mode .review-item.is-wrong { border-left: 1px solid #ccc !important; }
+
+            /* MODE 2: Teacher Notes / Smart Notes */
+            body.print-notes-mode #print-title-out::after { content: " (Model Answer & Notes)"; font-size: 16px; color: #555; display: block; margin-top: 5px; text-transform: none;}
+            body.print-notes-mode .print-opt-item.is-correct-opt { display: flex !important; background: #f0fdf4 !important; border: 1px solid #16a34a !important; padding: 10px; border-radius: 8px; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;}
+            body.print-notes-mode .print-opt-item.is-correct-opt .print-opt-letter { background: #16a34a !important; color: #fff !important; border-color: #16a34a !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;}
+            body.print-notes-mode .print-rule-box { display: block !important; background: #f8fafc !important; border: 1px dashed #64748b !important; padding: 12px !important; border-radius: 8px !important; margin-top: 12px !important; font-family: 'Cairo'; font-size: 15px; font-weight: 700; direction: rtl; text-align: right; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;}
+            body.print-notes-mode .omr-container { display: none !important; } 
+
+            /* OMR */
+            .omr-container { display: none; page-break-before: always; padding: 10mm 15mm; font-family: 'Outfit'; }
+            body.omr-active .omr-container { display: block !important; }
+            .omr-title { text-align: center; font-size: 24px; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; direction: ltr;}
+            .omr-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px 30px; direction: ltr;}
+            .omr-row { display: flex; align-items: center; gap: 15px; }
+            .omr-q-num { font-weight: 900; font-size: 16px; width: 25px; text-align: right; }
+            .omr-bubbles { display: flex; gap: 5px; }
+            .omr-bubble { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; }
+        }
+
+        /* 📱 MOBILE THUMB-FRIENDLY ADJUSTMENTS */
+        @media (max-width: 768px) {
+            body { padding: 12px 6px; }
+            .main-container { border-radius: 20px;}
+            header { padding: 65px 15px 25px; }
+            .top-bar-controls { top: 12px; padding: 0 12px; }
+            header img { width: 90px; height: 90px; margin-top: 15px;}
+            header h1 { font-size: 24px; }
+            .timer-box { font-size: 15px; height: 40px; }
+            .icon-btn { width: 40px; height: 40px; }
+            .cheer-bubble { padding: 14px 18px; }
+            .avatar-grid { gap: 10px; padding: 15px 5px 25px 5px; }
+            .avatar-option { font-size: 26px; padding: 10px 14px; }
+            .action-btns { flex-direction: column; gap: 14px; margin-top: 35px;}
+            .btn { width: 100%; font-size: 16px; padding: 18px; }
+            .result-actions { grid-template-columns: 1fr; }
+            .btn-full { grid-column: span 1; }
+            .score-circle { width: 180px; height: 180px; font-size: 45px;}
+        }
+    </style>
+</head>
+<body id="main-body" class="theme-1">
+
+<div class="bg-orb"></div>
+<div class="bg-grid"></div>
+
+<div id="cheat-modal">
+    <div class="cheat-content">
+        <h1>🚨 نظام المراقبة الصامت</h1>
+        <p id="cheat-msg">تم رصد فقدان التركيز والخروج من شاشة التقييم.</p>
+        <button onclick="document.getElementById('cheat-modal').style.display='none'" class="btn btn-outline" style="color:var(--error-color); border-color:var(--error-color); width:100%;">أعتذر، سأحافظ على تركيزي</button>
+    </div>
+</div>
+
+<div id="pause-modal">
+    <div class="cheat-content" style="border-color: var(--accent);">
+        <h1 style="color: var(--accent);">⏸️ إيقاف مؤقت</h1>
+        <p id="pause-count-msg" style="color: var(--text-main); font-size: 18px; margin-bottom: 20px;"></p>
+        <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 30px;">رادار المراقبة لا يزال يعمل. الخروج من المتصفح سيسجل تحذيراً.</p>
+        <button type="button" onclick="togglePause()" class="btn btn-solid" style="width:100%;">▶️ استئناف التحدي</button>
+    </div>
+</div>
+
+<!-- ========================================================
+     🖨️ PRINT MASTER ENGINE V.MAX CONTAINER
+     ======================================================== -->
+<div id="print-container">
+    <div class="print-watermark">
+        <img src="https://lh3.googleusercontent.com/d/1BqwA44F0BAwWMSwBnBeDIkfkNgBEtif-" alt="Watermark">
+    </div>
+    <table class="print-table">
+        <thead class="print-thead">
+            <tr>
+                <td>
+                    <div class="header-content">
+                        <img src="https://lh3.googleusercontent.com/d/1BqwA44F0BAwWMSwBnBeDIkfkNgBEtif-" alt="Logo">
+                        <div><strong>Mr. Ayman Kamel</strong><span>English Language Educator</span></div>
+                    </div>
+                </td>
+            </tr>
+        </thead>
+        <tbody class="print-tbody">
+            <tr>
+                <td>
+                    <div class="exam-title-box">
+                        <h2 id="print-title-out">ELITE CHALLENGE - CODE: VOC-MAS-96</h2>
+                        <div class="student-info-row">
+                            <div class="info-field name-field"><span class="info-label">Student Name:</span><div class="info-line" id="print-doc-student"></div></div>
+                            <div class="info-field score-field"><span class="info-label">Score:</span><div class="info-line" id="print-score-out">/ 96</div></div>
+                        </div>
+                    </div>
+                    
+                    <div class="print-q-container" id="print-q-list"></div>
+
+                    <div class="omr-container">
+                        <div class="omr-title">OMR Bubble Sheet</div>
+                        <div class="omr-grid" id="omr-grid"></div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot class="print-tfoot">
+            <tr>
+                <td>
+                    <div class="footer-content">
+                        <div>📞 01284749899</div>
+                        <div class="page-number"></div>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div class="main-container" id="app-container">
+    
+    <header class="no-print">
+        <div class="top-bar-controls">
+            <div class="left-controls">
+                <div class="time-controls" id="timer-container" style="display: none;">
+                    <div class="timer-box" id="timer-box"><div class="time-dot"></div><span id="timer-text">--:--</span></div>
+                    <button type="button" class="icon-btn" id="btn-pause" onclick="togglePause()" title="إيقاف مؤقت">⏸️</button>
+                    <button type="button" class="icon-btn" id="btn-timer-view" onclick="toggleTimerView()" title="إخفاء الوقت">⏱️</button>
+                </div>
+            </div>
+            <div class="right-controls">
+                <div class="eye-care-controls" id="eye-care-container" style="display: none;">
+                    <button type="button" class="icon-btn" onclick="changeFontSize(2)" title="تكبير الخط">A+</button>
+                    <button type="button" class="icon-btn" onclick="changeFontSize(-2)" title="تصغير الخط">A-</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cheer-wrapper" id="cheer-wrapper">
+            <div class="cheer-bubble">
+                <div class="cheer-text">
+                    <div class="cheer-en" id="cheer-en"></div>
+                    <div class="cheer-separator"></div>
+                    <div class="cheer-ar" id="cheer-ar"></div>
+                </div>
+                <img src="https://lh3.googleusercontent.com/d/1BqwA44F0BAwWMSwBnBeDIkfkNgBEtif-" alt="Mr. Ayman Kamel">
+            </div>
+        </div>
+        <!-- 🦅 اللوجو بالمعايير الهندسية ودعم الـ Easter Egg والـ Confetti العلوي -->
+        <img src="https://lh3.googleusercontent.com/d/1BqwA44F0BAwWMSwBnBeDIkfkNgBEtif-" alt="Mr. Ayman Kamel Logo" onclick="triggerEasterEgg()">
+        <h1>Mr. Ayman Kamel</h1>
+        <p class="job-title">English Language Educator</p>
+        <p class="slogan" style="unicode-bidi: isolate; direction: ltr;">"Let's learn together!"</p>
+        <div class="vip-phone">📞 01284749899</div>
+    </header>
+
+    <div class="content-body no-print" id="start-body">
+        <div id="start-screen">
+            <div class="welcome-card">
+                <h3>🌟 خطوتك نحو القمة تبدأ هنا!</h3>
+                <p>تحدي استثنائي مصمم لقياس تركيزك الحقيقي وقوة ملاحظتك تحت الضغط. اقرأ التفاصيل بدقة واستعد لإثبات جدارتك.<br><br>هل تقبل التحدي وتستطيع الوصول للقمة؟</p>
+            </div>
+            
+            <h4 style="color: var(--text-main); font-weight: 800; margin-bottom: 15px; text-align: center;">اختار مستوى التحدي الزمني:</h4>
+            <div class="ta-grid">
+                <button type="button" class="btn ta-btn" onclick="setTimeAttack(20, this)">⚡ 20ث (أساطير)</button>
+                <button type="button" class="btn ta-btn" onclick="setTimeAttack(30, this)">🔥 30ث (محترفين)</button>
+                <button type="button" class="btn ta-btn" onclick="setTimeAttack(45, this)">⏳ 45ث (أبطال)</button>
+                <button type="button" class="btn ta-btn active" onclick="setTimeAttack(0, this)">🛑 كلاسيك (وقت مفتوح)</button>
+            </div>
+            
+            <h4 style="color: var(--text-main); font-weight: 800; margin-bottom: 15px; text-align: center;">اختر مفتاح العبور الخاص بك:</h4>
+            <div class="avatar-grid">
+                <div class="avatar-option selected" onclick="selectAvatar(this, '💎')">💎</div>
+                <div class="avatar-option" onclick="selectAvatar(this, '🚀')">🚀</div>
+                <div class="avatar-option" onclick="selectAvatar(this, '⚡')">⚡</div>
+                <div class="avatar-option" onclick="selectAvatar(this, '🏆')">🏆</div>
+            </div>
+            <div class="input-group">
+                <!-- ⌨️ تفعيل زر Enter للبدء الفوري -->
+                <input type="text" id="studentName" placeholder="أدخل اسمك الثلاثي لتبدأ..." autocomplete="off" onkeypress="if(event.key === 'Enter') startQuiz()">
+            </div>
+            <button type="button" class="btn btn-solid" style="width:100%" id="start-btn-action" onclick="startQuiz()">START ASSESSMENT ➔</button>
+        </div>
+
+        <div id="quiz-screen" style="display: none;">
+            <div class="hud-progress-wrapper">
+                <div class="hud-stats">
+                    <div class="hud-student"><div class="avatar-ring" id="hud-avatar">💎</div> <span id="hud-name">--</span></div>
+                    <div class="hud-counter" id="progress-count">Q: 1 / 96</div>
+                </div>
+                <div class="hud-bar-container">
+                    <div class="hud-bar-fill" id="energy-bar"><div class="hud-avatar-runner" id="hud-moving-avatar">💎</div></div>
+                </div>
+            </div>
+            <div class="station-card" id="q-box">
+                <div class="question-text">
+                    <div class="question-text-wrapper"><span id="question-text-content" style="display: block; width: 100%; direction: ltr; text-align: left;">--</span></div>
+                    <div class="tts-btn-container"><button type="button" class="icon-btn" style="border-color:var(--accent); color:var(--accent); background: var(--input-bg);" onclick="speakQuestion()">🔊</button></div>
+                </div>
+                <div class="options-list" id="options-list" style="direction: ltr;"></div>
+            </div>
+            <div class="action-btns">
+                <button type="button" class="btn btn-solid" id="next-btn" onclick="nextQuestion()">NEXT ➔</button>
+                <button type="button" class="btn btn-solid" id="submit-btn" onclick="calculateScore()" style="display: none;">🚀 SUBMIT</button>
+                <button type="button" class="btn btn-prev" id="prev-btn" onclick="prevQuestion()" disabled>⬅ PREV</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="result-screen" style="display: none;">
+        
+        <div class="score-card no-print">
+            <div class="score-circle" id="score-percentage">0 / 0</div>
+            <div id="score-percent-text">Accuracy: 0%</div>
+            <div id="student-display-name"><span class="result-avatar" id="res-avatar">💎</span> <span id="res-name"></span></div>
+            <div class="scratch-container">
+                <div id="badge-award-box" class="badge-award">اخدش لترى حالتك</div>
+                <canvas id="scratch-canvas"></canvas>
+            </div>
+            <p id="score-details" style="font-size: 16px; font-weight: 700; margin-top: 25px; color: var(--text-muted);"></p>
+        </div>
+
+        <div class="result-actions no-print">
+            <button type="button" class="btn btn-outline" onclick="printBlankExam()">🖨️ طباعة كاختبار ورقي</button>
+            <button type="button" class="btn btn-outline" onclick="printSmartNotes()">📥 مذكرة الأخطاء (شرح)</button>
+            
+            <button type="button" class="btn btn-solid btn-full" id="cert-btn" onclick="downloadCertificate()" style="display: none;">📜 استخراج شهادة النخبة</button>
+            <button type="button" class="btn btn-outline btn-whatsapp" onclick="shareToTeacherWhatsApp()">👨‍🏫 إرسال التقرير لمستر أيمن</button>
+            <button type="button" class="btn btn-outline btn-whatsapp" onclick="shareToParentWhatsApp()">👨‍👩‍👧 تقرير ولي الأمر</button>
+            <button type="button" class="btn btn-outline btn-full" style="color:var(--accent); border-color:var(--accent);" onclick="location.reload()">🔄 إعادة المحاولة</button>
+        </div>
+
+        <h3 class="no-print" style="text-align: right; color: var(--text-main); margin-top: 20px; border-bottom: 2px dashed rgba(139, 92, 246, 0.25); padding-bottom: 12px; font-weight: 900;">📂 المراجعة اللحظية (Smart Revision):</h3>
+        
+        <div id="review-list" class="no-print"></div>
+    </div>
+</div>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxps3pkSIfSFL8rwhCNMlNCEYkeL2ooxYo_6WgWRXHHL0hcY0owu-x0qRtZei0migOyxg/exec";
+const EXAM_TITLE = "ELITE CHALLENGE - CODE: VOC-MAS-96";
+const EXAM_SCORE_TEXT = "/ 96";
+
+function tryVibrate(pattern) { if (navigator.vibrate) try { navigator.vibrate(pattern); } catch(e){} }
+
+/* 🔥 REFRESH PROTECTION 🔥 */
+window.addEventListener('beforeunload', function (e) {
+    if (document.getElementById('quiz-screen') && document.getElementById('quiz-screen').style.display === 'block' && !isSubmitting) {
+        e.preventDefault();
+        e.returnValue = ''; 
+    }
+});
+
+/* 🖨️ Print Master Engine Direct Modes */
+function preparePrintData() {
+    const titleOut = document.getElementById("print-title-out");
+    const scoreOut = document.getElementById("print-score-out");
+    if(titleOut) titleOut.innerText = EXAM_TITLE;
+    if(scoreOut) scoreOut.innerText = EXAM_SCORE_TEXT;
+}
+
+function printBlankExam() {
+    preparePrintData();
+    document.body.classList.remove('print-notes-mode');
+    document.body.classList.add('print-blank-mode');
+    document.body.classList.add('omr-active'); 
+    window.print();
+    document.body.classList.remove('print-blank-mode');
+    document.body.classList.remove('omr-active');
+}
+
+function printSmartNotes() {
+    preparePrintData();
+    document.body.classList.remove('print-blank-mode');
+    document.body.classList.remove('omr-active'); 
+    document.body.classList.add('print-notes-mode');
+    window.print();
+    document.body.classList.remove('print-notes-mode');
+}
+
+/* Audio & Init */
+let audioCtx = null;
+function initAudio() { try { if (!audioCtx) { const AudioContext = window.AudioContext || window.webkitAudioContext; if(AudioContext) audioCtx = new AudioContext(); } if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume(); } catch(e) {} }
+function playTone(freq, type, duration) { try { initAudio(); if (!audioCtx) return; let osc = audioCtx.createOscillator(), gain = audioCtx.createGain(); osc.type = type; osc.frequency.value = freq; gain.gain.setValueAtTime(0.05, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration); osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + duration); } catch(e) {} }
+function soundWrongTime() { tryVibrate([100, 50, 100]); playTone(150, 'sawtooth', 0.3); setTimeout(()=>playTone(100, 'sawtooth', 0.4), 200); }
+function soundBossWin() { tryVibrate([200, 100, 200, 100, 200]); [523, 659, 783, 1046, 1318].forEach((f,i)=> setTimeout(()=>playTone(f,'square',0.15), i*100)); }
+
+function speakQuestion() {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        let text = quizData[currentQuestion].originalQ.replace(/_+/g, "blank").replace(/-+/g, "blank").replace(/\.{3,}/g, "blank");
+        let msg = new SpeechSynthesisUtterance(text); msg.lang = 'en-US'; msg.rate = 0.85;
+        window.speechSynthesis.speak(msg);
+    }
+}
+
+function initScratchCard() {
+    try {
+        const container = document.getElementById("badge-award-box");
+        const canvas = document.getElementById("scratch-canvas");
+        if(!container || !canvas) return;
+        const ctx = canvas.getContext("2d");
+        canvas.width = container.offsetWidth; canvas.height = container.offsetHeight;
+        let currentAccent = getComputedStyle(document.body).getPropertyValue('--accent').trim() || '#F59E0B';
+        ctx.fillStyle = '#0A0A0A'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.font = "bold 18px 'Cairo', sans-serif"; ctx.fillStyle = currentAccent;
+        ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText("🪄 اخدش عشان تشوف نتيجتك", canvas.width/2, canvas.height/2);
+        let isDrawing = false;
+        function scratch(e) {
+            if(!isDrawing) return; e.preventDefault();
+            let rect = canvas.getBoundingClientRect();
+            let x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
+            let y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+            ctx.globalCompositeOperation = "destination-out";
+            ctx.beginPath(); ctx.arc(x, y, 35, 0, Math.PI*2); ctx.fill();
+        }
+        canvas.onmousedown = () => isDrawing = true; canvas.ontouchstart = () => isDrawing = true;
+        canvas.onmouseup = () => isDrawing = false; canvas.ontouchend = () => isDrawing = false;
+        canvas.onmousemove = scratch; canvas.ontouchmove = scratch;
+    } catch(e) { console.log("Scratch card init skipped"); }
+}
+
+const cheers = [
+    {en: "You are dominating!", ar: "وحش، إنت مسيطر على الموقف تماماً!"},
+    {en: "Precision is key!", ar: "دماغك ألماظ، تركيزك في محله!"},
+    {en: "Keep up the great work!", ar: "كمل على كده، مفيش حاجة هتوقفك!"},
+    {en: "Unstoppable momentum!", ar: "الدوسة دي متوقفهاش، هانت!"},
+    {en: "Brilliant execution!", ar: "الله ينور، أداء متعلمين بجد!"},
+    {en: "Don't let anything distract you!", ar: "خليك فايق ومصحصح، الغلطة بفورة!"},
+    {en: "You're closer to perfection!", ar: "خطوة كمان والتقفيل يبقى بتاعك!"},
+    {en: "Take a deep breath and conquer!", ar: "خد نفس عميق وفرتك اللي بعده."},
+    {en: "Pure genius!", ar: "عبقرية ماشية على الأرض، استمر!"},
+    {en: "Every detail matters!", ar: "ركز في التفاصيل، هي دي اللي بتفرق!"},
+    {en: "You're on fire today!", ar: "إنت مولعها النهاردة، بطل!"},
+    {en: "Stay sharp!", ar: "أوعى تسرح، عينك في وسط راسك!"},
+    {en: "Legendary progress!", ar: "أداء أساطير، مفيش كلام!"},
+    {en: "Nothing can break your focus!", ar: "ولا ألف سؤال يقدروا يوقعوك!"},
+    {en: "The top rank is calling!", ar: "القمة بتناديك، متتنازلش عنها نهائياً!"}
+];
+let lastCheerIndex = -1; 
+function triggerTeacherCheer() {
+    const wrapper = document.getElementById("cheer-wrapper");
+    if(!wrapper) return;
+    let randomIndex; do { randomIndex = Math.floor(Math.random() * cheers.length); } while (randomIndex === lastCheerIndex); 
+    lastCheerIndex = randomIndex;
+    const enEl = document.getElementById("cheer-en");
+    const arEl = document.getElementById("cheer-ar");
+    if(enEl) enEl.innerText = cheers[randomIndex].en;
+    if(arEl) arEl.innerText = cheers[randomIndex].ar;
+    wrapper.classList.add("show"); setTimeout(() => { wrapper.classList.remove("show"); }, 3500);
+}
+
+/* 🦅 EASTER EGG (Logo 5 Clicks with Confetti zIndex 999999) */
+let logoClicks = 0, logoClickTimer;
+function triggerEasterEgg() {
+    logoClicks++; clearTimeout(logoClickTimer);
+    logoClickTimer = setTimeout(() => { logoClicks = 0; }, 1500);
+    if(logoClicks >= 5) {
+        soundBossWin();
+        try {
+            let confColor = getComputedStyle(document.body).getPropertyValue('--accent').trim() || '#F59E0B';
+            if (typeof confetti === 'function') {
+                confetti({ particleCount: 300, spread: 150, origin: { y: 0.5 }, colors: ['#0A0A0A', confColor, '#F8FAFC'], zIndex: 999999 });
+            }
+        } catch(e){}
+        alert("💎 Obsidian Gold Theme Active (Masterpiece)! 💎"); 
+        logoClicks = 0; 
+    }
+}
+
+function changeFontSize(change) {
+    const root = document.documentElement;
+    let currentSize = parseInt(getComputedStyle(root).getPropertyValue('--q-font-size')) || 22;
+    let newSize = currentSize + change;
+    if(newSize >= 16 && newSize <= 30) root.style.setProperty('--q-font-size', newSize + 'px');
+}
+
+/* 🔥 EXACT DATA ARRAY - 96 Vocabulary Questions (Transcribed Verbatim from Exam Images) 🔥 */
+const rawData = [
+    { q: "1. -------- is how good you feel in your body and how happy you are.", options: ["Self-care", "Stress", "Well-being", "Mental Health"], answer: 2, rule: "Vocabulary Definition", zatona: "الصحة الجيدة والسعادة والراحة الجسدية والنفسية تُعرف بـ Well-being." },
+    { q: "2. It takes a long time to walk to the top of the hill but it's -------- the effort.", options: ["worse", "worth", "worst", "worthy"], answer: 1, rule: "Collocation: worth the effort", zatona: "التعبير يستحق الجهد والعناء يقال له worth the effort." },
+    { q: "3. The electrician is ------------ for work next weekend.", options: ["available", "sustainable", "bearable", "reasonable"], answer: 0, rule: "Adjective Context", zatona: "الشخص المتاح وغير المشغول للعمل يقال له available." },
+    { q: "4. The most recent major --------- was an explosion at an oil refinery.", options: ["occasion", "festival", "organization", "incident"], answer: 3, rule: "Noun Context", zatona: "الحادث أو الواقعة الطارئة غير السارة يقال لها incident." },
+    { q: "5. To get a ------------, you have to make outstanding achievements.", options: ["mission", "permission", "promotion", "motion"], answer: 2, rule: "Career Vocabulary", zatona: "الحصول على ترقية وظيفية يقال له get a promotion." },
+    { q: "6. My little sister is a/an ----------- person. She enjoys the company of others.", options: ["introvert", "sociable", "pessimistic", "boring"], answer: 1, rule: "Personality Adjective", zatona: "الشخص الاجتماعي الودود المحب للآخرين هو sociable." },
+    { q: "7. He found it ------------- to realize everyone had heard his rude comment.", options: ["qualifying", "clarifying", "classifying", "mortifying"], answer: 3, rule: "Adjective Meaning", zatona: "الأمر المحرج والمخزي للغية يوصف بـ mortifying." },
+    { q: "8. He prefers to ------------ out with a small group of friends.", options: ["waste", "spend", "hang", "send"], answer: 2, rule: "Phrasal Verb: hang out", zatona: "التعبير يقضي وقتاً مع الأصدقاء بالخارج هو hang out with." },
+    { q: "9. The two friends decided to ------------- the town after finishing their exams.", options: ["get", "hit", "rob", "take"], answer: 1, rule: "Idiom: hit the town", zatona: "الخروج للتنزه والاحتفال بالمدينة تعبيره الاصطلاحي hit the town." },
+    { q: "10. We usually cook at home on ------------- .", options: ["daylight", "weeknights", "fortnight", "tonight"], answer: 1, rule: "Time Vocabulary", zatona: "أمسيات أيام الأسبوع العادية (من الأحد للخميس) تسمى weeknights." },
+    { q: "11. The flood was a natural ------------- that displaced thousands of people in Pakistan.", options: ["merit", "benefit", "advantage", "disaster"], answer: 3, rule: "Noun Context", zatona: "الكارثة الطبيعية كالفيضانات والزلازل تسمى natural disaster." },
+    { q: "12. A salt ------------- was placed on every table in the restaurant.", options: ["funnel", "cup", "shaker", "tube"], answer: 2, rule: "Household / Restaurant Items", zatona: "ملاحة الملح التي يوضع فيها الملح ترش تسمى salt shaker." },
+    { q: "13. His ------------- caused him to spill coffee all over the desk.", options: ["clumsiness", "accuracy", "carefulness", "neatness"], answer: 0, rule: "Noun Meaning", zatona: "الخرق وقلة المهارة والتعثر بالحركات يسمى clumsiness." },
+    { q: "14. The company moved into a ------------ -new headquarters downtown.", options: ["land", "band", "stand", "brand"], answer: 3, rule: "Compound Adjective: brand-new", zatona: "الشيء الجديد تماماً لأول مرة يقال له brand-new." },
+    { q: "15. He looked pale ------------- a ghost after hearing the terrible news.", options: ["unlike", "like", "as", "similar"], answer: 2, rule: "Simile: as a ghost", zatona: "التعبير التشبيهي لشحوب الوجه هو pale as a ghost." },
+    { q: "16. She promised to stand ------------ my side no matter what.", options: ["in", "by", "with", "for"], answer: 1, rule: "Idiom / Preposition", zatona: "يقف بجانبي ويساندني يقال لها stand by my side." },
+    { q: "17. A true friend stays with you ------------- thick and thin.", options: ["through", "on", "at", "about"], answer: 0, rule: "Idiom: through thick and thin", zatona: "البقاء مع الصديق في السراء والضراء تعبيره through thick and thin." },
+    { q: "18. She finds it hard to ------------- in large groups.", options: ["realize", "prioritize", "digitize", "socialize"], answer: 3, rule: "Verb Meaning", zatona: "الاختلاط والتواصل الاجتماعي مع الجماعات يسمى socialize." },
+    { q: "19. ------------- regulate many processes in the body, including growth and mood.", options: ["Neutrons", "Protons", "Hormones", "Drones"], answer: 2, rule: "Biological Science", zatona: "المواد التي تفرز لتنظيم النمو والحالة المزاجية هي الهرمونات Hormones." },
+    { q: "20. These exercises are designed to ------------- your muscles.", options: ["weaken", "strengthen", "harm", "remove"], answer: 1, rule: "Verb Meaning", zatona: "التمارين مصممة لتقوية العضلات strengthen your muscles." },
+    { q: "21. It is important to ------------- a healthy work-life balance.", options: ["maintain", "resist", "ignore", "avoid"], answer: 0, rule: "Collocation: maintain a balance", zatona: "الحفاظ على التوازن بين العمل والحياة هو maintain a balance." },
+    { q: "22. Tiredness, loss of appetite, and sleeping problems are all symptoms of -----------.", options: ["composition", "procession", "admission", "depression"], answer: 3, rule: "Medical / Health Vocabulary", zatona: "الإرهاق وفقدان الشهية واضطراب النوم من أعراض الاكتئاب depression." },
+    { q: "23. His ----------- before public speaking was obvious in his trembling hands.", options: ["confidence", "assurance", "anxiety", "variety"], answer: 2, rule: "Noun Meaning", zatona: "التوتر والقلق والاضطراب قبل الحديث أمام الجمهور يسمى anxiety." },
+    { q: "24. He apologized ------------ without admitting fault.", options: ["honestly", "superficially", "truthfully", "faithfully"], answer: 1, rule: "Adverb Meaning", zatona: "الاعتذار السطحي المصطنع دون اعتراف بالخطأ يوصف بـ superficially." },
+    { q: "25. Social ----------- plays a vital role in developing communication skills.", options: ["interaction", "action", "reaction", "infection"], answer: 0, rule: "Collocation: social interaction", zatona: "التفاعل الاجتماعي مع الآخرين تعبيره social interaction." },
+    { q: "26. They reached a ----------- after hours of negotiation.", options: ["promise", "disagreement", "conflict", "compromise"], answer: 3, rule: "Collocation: reach a compromise", zatona: "التوصل إلى حل وسط وتسوية بعد مفاوضات يقال له reach a compromise." },
+    { q: "27. The train was so ------------ that passengers could hardly move.", options: ["picked", "checked", "packed", "crashed"], answer: 2, rule: "Adjective: packed (crowded)", zatona: "المكان المكتظ والمزدحم بشدة بالركاب يوصف بـ packed." },
+    { q: "28. Unemployment can have a / an ------------- effect on individuals.", options: ["productive", "destructive", "protective", "active"], answer: 1, rule: "Adjective Context", zatona: "أثر البطالة الهدام والمدمر على الأفراد هو destructive effect." },
+    { q: "29. The amount of homework this week feels ------------ to the students. It's too much.", options: ["overwhelming", "curious", "slight", "tiny"], answer: 0, rule: "Adjective: overwhelming", zatona: "الشيء الزائد عن طاقة التحمل والساحق للجهد يوصف بـ overwhelming." },
+    { q: "30. Movies are a popular form of ------------- .", options: ["promise", "entertainment", "assignment", "imprisonment"], answer: 1, rule: "Collocation: form of entertainment", zatona: "الأفلام والسينما شكل من أشكال الترفيه entertainment." },
+    { q: "31. Be careful not to bump ------------- anyone in the crowded hallway.", options: ["into", "to", "of", "from"], answer: 0, rule: "Phrasal Verb: bump into", zatona: "الاصطدام بشخص بالمصادفة في مكان مزدحم تعبيره bump into." },
+    { q: "32. The gentle ------------ made the hot afternoon more bearable.", options: ["drought", "heat", "blizzard", "breeze"], answer: 3, rule: "Weather Vocabulary", zatona: "النسيم اللطيف العليل في يوم حار يسمى breeze." },
+    { q: "33. He looked ------------- when everyone laughed at his clumsiness.", options: ["embarrass", "embarrassing", "embarrassed", "embarrassment"], answer: 2, rule: "Adjective for Person (-ed)", zatona: "الشخص الذي يشعر بالحرج والخجل يوصف بـ embarrassed." },
+    { q: "34. It was an ------------- moment at the supermarket she discovered she had forgotten to bring any money.", options: ["embarrass", "embarrassing", "embarrassed", "embarrassment"], answer: 1, rule: "Adjective for Situation (-ing)", zatona: "الموقف المسبب للإحراج يوصف بـ embarrassing moment." },
+    { q: "35. He leads a ------------- life filled with travel and events.", options: ["glamorous", "gloomy", "desperate", "miserable"], answer: 0, rule: "Adjective Context", zatona: "الحياة البراقة المليئة بالسفر والشهرة والفعاليات هي glamorous life." },
+    { q: "36. A / An ----------- environment in schools boosts students' confidence.", options: ["inactive", "inattentive", "insensitive", "supportive"], answer: 3, rule: "Collocation: supportive environment", zatona: "البيئة المدرسية الداعمة والمشجعة للطلاب هي supportive environment." },
+    { q: "37. The noise continued ------------- the night. It was really annoying.", options: ["about", "from", "throughout", "though"], answer: 2, rule: "Preposition of Time", zatona: "استمرار الشيء طوال الليل دون انقطاع يقال له throughout the night." },
+    { q: "38. The pain was really ------------- without medication.", options: ["unable", "unbearable", "disabled", "unavailable"], answer: 1, rule: "Adjective Context", zatona: "الألم الشديد الذي لا يطاق ولا يحتمل يوصف بـ unbearable." },
+    { q: "39. She was ------------- by the sad, unexpected news.", options: ["upset", "overjoyed", "delighted", "thrilled"], answer: 0, rule: "Adjective Context", zatona: "الشعور بالحزن والضيق من الأخبار السيئة يعبر عنه بـ upset." },
+    { q: "40. The company introduced ------------- hours to improve employees' well-being.", options: ["mixing", "unsuitable", "unfit", "flexible"], answer: 3, rule: "Collocation: flexible hours", zatona: "ساعات العمل المرنة لتحسين راحة الموظفين تسمى flexible hours." },
+    { q: "41. His great kindness goes ------------- words. Everyone admired him.", options: ["about", "beneath", "beyond", "over"], answer: 2, rule: "Idiom: beyond words", zatona: "الشيء الذي يفوق الوصف والكلمات يقال له beyond words." },
+    { q: "42. He enjoys ------------- socially with people from different backgrounds.", options: ["distancing", "mixing", "separating", "avoiding"], answer: 1, rule: "Collocation: mixing socially", zatona: "الاندماج والاختلاط اجتماعياً بالآخرين يقال له mixing socially." },
+    { q: "43. The resort offers many outdoor activities to ------------- during the day.", options: ["make", "act", "do", "bring"], answer: 2, rule: "Collocation: do activities", zatona: "ممارسة الأنشطة الترفيهية والرياضية تأخذ الفعل do activities." },
+    { q: "44. I need to catch up ------------- the school assignments I missed.", options: ["in", "for", "from", "on"], answer: 3, rule: "Phrasal Verb: catch up on", zatona: "تعويض ما فات وإنجاز المتأخرات تعبيره catch up on." },
+    { q: "45. Final exams are a major source of ---------- for most students.", options: ["pleasure", "delight", "stress", "relaxation"], answer: 2, rule: "Collocation: source of stress", zatona: "امتحانات نهاية العام مصدر رئيسي للضغط والتوتر العصبي source of stress." },
+    { q: "46. A good teacher shows ------------- toward struggling students.", options: ["avoidance", "empathy", "negligence", "cruelty"], answer: 1, rule: "Noun Meaning", zatona: "إظهار التعاطف والتفهم لمشاعر وظروف الطلاب يسمى empathy." },
+    { q: "47. His apology seemed ------------- and insincere, so she didn't accept it.", options: ["superficial", "special", "real", "truthful"], answer: 0, rule: "Adjective Context", zatona: "الاعتذار الظاهري غير الصادق يوصف بـ superficial." },
+    { q: "48. A family ------------- was held to celebrate the father's promotion.", options: ["connection", "unity", "harmony", "gathering"], answer: 3, rule: "Collocation: family gathering", zatona: "التجمع والتكتل العائلي للاحتفال بمناسبة يسمى family gathering." },
+    { q: "49. He received strong ------------- from his family and friends, which encouraged him to succeed.", options: ["support", "objection", "rejection", "opposition"], answer: 0, rule: "Noun Context", zatona: "تلقي الدعم والمساندة القوية للنجاح يسمى strong support." },
+    { q: "50. Regular exercise and proper sleep help strengthen the immune ------------- .", options: ["part", "portion", "device", "system"], answer: 3, rule: "Medical Collocation: immune system", zatona: "الجهاز المناعي بالجسم يسمى immune system." },
+    { q: "51. The sudden ------------- of dark clouds signaled an approaching storm.", options: ["disappearance", "hiding", "appearance", "cancelling"], answer: 2, rule: "Noun Context", zatona: "الظهور المفاجئ للسحب الداكنة يسمى sudden appearance." },
+    { q: "52. The café had a warm, relaxed ------------- that encouraged conversation.", options: ["reference", "atmosphere", "interference", "attachment"], answer: 1, rule: "Noun Context", zatona: "الجو العام والبيئة المريحة للمكان تسمى relaxed atmosphere." },
+    { q: "53. Many people ------------ their savings in property to secure their future.", options: ["invest", "send", "waste", "release"], answer: 0, rule: "Business / Finance Collocation", zatona: "استثمار المدخرات في العقارات يقال له invest savings." },
+    { q: "54. She felt ------------- explaining the misunderstanding to her colleagues.", options: ["awarded", "ordered", "rewarded", "awkward"], answer: 3, rule: "Adjective Context", zatona: "الشعور بالحرج والارتباك وعدم الارتياح يوصف بـ awkward." },
+    { q: "55. Childhood experiences often have a ------------- impact on personality.", options: ["messing", "missing", "lasting", "listing"], answer: 2, rule: "Collocation: lasting impact", zatona: "التأثير الدائم وطويل الأمد يسمى lasting impact." },
+    { q: "56. A balanced diet is ------------- to both physical and mental health.", options: ["unnecessary", "beneficial", "unwanted", "unsuitable"], answer: 1, rule: "Adjective Meaning", zatona: "النظام الغذائي المتوازن مفيد ونافع لصحة الجسم beneficial." },
+    { q: "57. The children are so ------------- and full of energy.", options: ["lively", "ugly", "likely", "probably"], answer: 0, rule: "Adjective Meaning", zatona: "الأطفال المفعمون بالحيوية والنشاط يوصفون بـ lively." },
+    { q: "58. The new Grand Egyptian Museum will ------------- tourism in Egypt.", options: ["destroy", "damage", "hurt", "boost"], answer: 3, rule: "Verb Meaning", zatona: "دعم وتنشيط وزيادة السياحة يعبر عنه بـ boost tourism." },
+    { q: "59. The product comes with a one-year ------------- .", options: ["evidence", "test", "guarantee", "examination"], answer: 2, rule: "Commercial Vocabulary", zatona: "ضمان المنتج لمدة عام يسمى one-year guarantee." },
+    { q: "60. She ------------- the customer's complaint professionally.", options: ["dealt", "handled", "operated", "related"], answer: 1, rule: "Verb Meaning: handle", zatona: "التعامل مع الشكوى وحلها بمهنية يقال له handled the complaint." },
+    { q: "61. She remained ------------- by his explanation. He didn't know what else to do.", options: ["unconvinced", "persuaded", "convinced", "understood"], answer: 0, rule: "Adjective Meaning", zatona: "البقاء دون اقتناع بالتفسير والحديث يوصف بـ unconvinced." },
+    { q: "62. She found it hard to ------------- friends at her new school.", options: ["establish", "construct", "build", "make"], answer: 3, rule: "Collocation: make friends", zatona: "تكوين الصداقات والتعرف على رفقاء جدد تعبيره make friends." },
+    { q: "63. They finally met face- ------------ -face after months of online communication.", options: ["to", "for", "with", "on"], answer: 0, rule: "Idiom: face-to-face", zatona: "المقابلة المباشرة وجهاً لوجه يقال لها face-to-face." },
+    { q: "64. The baby finally ------------- asleep after hours of crying.", options: ["did", "made", "acted", "fell"], answer: 3, rule: "Collocation: fall asleep", zatona: "الاستغراق في النوم تعبيره fall asleep والماضي منه fell asleep." },
+    { q: "65. The suspect was ------------- due to a lack of sufficient evidence.", options: ["imprisoned", "released", "executed", "hanged"], answer: 1, rule: "Legal Vocabulary", zatona: "إطلاق سراح المشتبه به لعدم كفاية الأدلة يسمى released." },
+    { q: "66. The water level has risen ------------- following the very heavy rains.", options: ["significantly", "lightly", "slightly", "hardly"], answer: 0, rule: "Adverb Meaning", zatona: "الارتفاع الملحوظ والكبير بدرجة واضحة يسمى risen significantly." },
+    { q: "67. He found the movie ------------- and predictable, so he left the cinema before the end.", options: ["fantastic", "terrific", "dull", "exciting"], answer: 2, rule: "Adjective Meaning", zatona: "الفيلم الممل وغير المشوق يوصف بـ dull." },
+    { q: "68. Water ------------- onto the floor as the child jumped into the pool.", options: ["flashed", "splashed", "smashed", "crashed"], answer: 1, rule: "Sound / Water Action", zatona: "تناثر وطرطشة الماء عند القفز في المسبح تسمى splashed." },
+    { q: "69. He gave a / an ------------- answer despite the difficult question.", options: ["shaky", "confident", "hesitant", "illogical"], answer: 1, rule: "Adjective Meaning", zatona: "الإجابة الواثقة الثابتة تسمى confident answer." },
+    { q: "70. There has been a sharp ------------- in temperature lately. We need heavy clothes.", options: ["decline", "rise", "increase", "height"], answer: 0, rule: "Collocation: sharp decline", zatona: "الانخفاض الحاد والسريع في درجات الحرارة يسمى sharp decline." },
+    { q: "71. He accidentally knocked ------------- the glass, spilling water all over the table.", options: ["on", "at", "in", "over"], answer: 3, rule: "Phrasal Verb: knock over", zatona: "إسقاط الكوب أو قلبه بالخطأ تعبيره knocked over." },
+    { q: "72. Long working hours can seriously affect ------------- health.", options: ["mental", "dental", "annual", "local"], answer: 0, rule: "Health Collocation: mental health", zatona: "ساعات العمل الطويلة تؤثر بشدة على الصحة النفسية والعقلية mental health." },
+    { q: "73. Miss.Rehab is known as a /an ------------ teacher who truly listens to her students.", options: ["careless", "unkind", "caring", "ruthless"], answer: 2, rule: "Adjective Meaning", zatona: "المعلمة العطوفة والمهتمة بطلابها توصف بـ caring." },
+    { q: "74. He ------------- an effort to arrive on time, but the traffic was too heavy.", options: ["did", "made", "spent", "invented"], answer: 1, rule: "Collocation: make an effort", zatona: "بذل الجهد تعبيره make an effort وفي الماضي made an effort." },
+    { q: "75. This region is characterized ------------ mild winters and hot summers.", options: ["by", "from", "in", "of"], answer: 0, rule: "Passive Preposition: characterized by", zatona: "تتميز المنطقة بـ تأخذ حرف الجر by (characterized by)." },
+    { q: "76. You have the ------------- to stay or go. It's up to you.", options: ["action", "option", "decision", "intention"], answer: 1, rule: "Collocation: have the option", zatona: "لديك الخيار والحرية للاختيار يقال لها have the option." },
+    { q: "77. We gathered to ------------- my younger brother's promotion.", options: ["find", "know", "understand", "celebrate"], answer: 3, rule: "Verb Meaning", zatona: "التجمع من أجل الاحتفال بترقية الأخ celebrate his promotion." },
+    { q: "78. Everyone congratulated Sarah ------------- her promotion.", options: ["in", "at", "on", "over"], answer: 2, rule: "Preposition: congratulate on", zatona: "التهنئة على مناسبة أو إنجاز تأخذ حرف الجر on (congratulate on)." },
+    { q: "79. It's wise to ------------- plans before starting a big project.", options: ["do", "see", "make", "exist"], answer: 2, rule: "Collocation: make plans", zatona: "وضع الخطط والتخطيط للمشروع يأخذ make plans." },
+    { q: "80. The unexpected ------------- of the experiment surprised the researchers.", options: ["step", "number", "outcome", "outbreak"], answer: 2, rule: "Noun Meaning: outcome", zatona: "النتيجة النهائية للتجربة العلمية تسمى outcome." },
+    { q: "81. He greeted the guests with a ------------- smile. He's so kind.", options: ["gloomy", "sad", "depressing", "cheerful"], answer: 3, rule: "Adjective Meaning", zatona: "الابتسامة البشوشة المبهجة تسمى cheerful smile." },
+    { q: "82. She knows how to deal ------------- difficult situations calmly.", options: ["with", "in", "at", "for"], answer: 0, rule: "Phrasal Verb: deal with", zatona: "التعامل مع المواقف الصعبة بحكمة يأخذ حرف الجر with (deal with)." },
+    { q: "83. Neurotransmitters act as chemical ------------- between nerve cells in the brain.", options: ["signs", "marks", "remarks", "messengers"], answer: 3, rule: "Scientific Context", zatona: "النواقل العصبية تعمل كمرسلات وموصلات كيميائية chemical messengers." },
+    { q: "84. She felt grateful ------------- the opportunity she was given.", options: ["for", "to", "at", "with"], answer: 0, rule: "Preposition: grateful for", zatona: "الشعور بالامتنان والتقدير لفرصة يأخذ حرف الجر for (grateful for)." },
+    { q: "85. Technology helps families stay ------------- across distances.", options: ["communicated", "separated", "connected", "joined"], answer: 2, rule: "Collocation: stay connected", zatona: "البقاء على تواصل وترابط رغم المسافات تعبيره stay connected." },
+    { q: "86. Teachers should focus on the ------------- of learning, not quantity.", options: ["authority", "complexity", "quality", "inequality"], answer: 2, rule: "Contrast: quality vs quantity", zatona: "التركيز على الكيف والجودة وليس الكم quantity يسمى quality." },
+    { q: "87. When he went abroad, he stayed ------------- touch with his former colleagues.", options: ["at", "for", "on", "in"], answer: 3, rule: "Idiom: stay in touch", zatona: "البقاء على اتصال بالزملاء يقال له stay in touch with." },
+    { q: "88. Regular exercise can ------------- stress levels and enhance physical fitness.", options: ["boost", "increase", "release", "reduce"], answer: 3, rule: "Verb Meaning: reduce stress", zatona: "ممارسة الرياضة تقلل وتخفض مستويات التوتر reduce stress levels." },
+    { q: "89. Carbon dioxide is ------------- to people's health.", options: ["useful", "beneficial", "artificial", "harmful"], answer: 3, rule: "Adjective: harmful to", zatona: "غاز ثاني أكسيد الكربون ضار بالصحة harmful to health." },
+    { q: "90. This diet certainly provides long-term health ------------- . You should try it.", options: ["downsides", "demerits", "benefits", "disadvantages"], answer: 2, rule: "Noun Context: benefits", zatona: "النظام الغذائي يقدم فوائد صحية طويلة الأمد health benefits." },
+    { q: "91. Many people feel deeply connected ------------- their hometown.", options: ["to", "for", "of", "about"], answer: 0, rule: "Preposition: connected to", zatona: "الشعور بالارتباط والانتماء لبلدتك ومسقط رأسك يأخذ connected to." },
+    { q: "92. I like this man. He avoids discussing personal matters ------------- public.", options: ["in", "on", "at", "for"], answer: 0, rule: "Idiom: in public", zatona: "مناقشة الأمور الشخصية أمام العامة وفي العلن تعبيرها in public." },
+    { q: "93. There is widespread unease ------------- the new policy. Many people object to it.", options: ["on", "about", "for", "in"], answer: 1, rule: "Preposition: unease about", zatona: "القلق وعدم الارتياح بشأن سياسة معينة يأخذ unease about." },
+    { q: "94. Buying that house turned out to be a financial disaster. The synonym of 'disaster' is -------.", options: ["catastrophe", "triumph", "success", "victory"], answer: 0, rule: "Synonym of disaster", zatona: "مرادف كلمة كارثة ومصيبة (disaster) هو فاجعة وكارثة (catastrophe)." },
+    { q: "95. The teacher encouraged interaction between students from different cultures. The antonym of 'interaction' is ------------- .", options: ["isolation", "connection", "socialization", "communication"], answer: 0, rule: "Antonym of interaction", zatona: "عكس التفاعل والمشاركة (interaction) هو العزلة والانطواء (isolation)." },
+    { q: "96. When my dad started singing loudly in the restaurant, it was completely mortifying. The synonym of 'mortifying' is ------------- .", options: ["pleasing", "amazing", "embarrassing", "delightful"], answer: 2, rule: "Synonym of mortifying", zatona: "مرادف الشيء المخزي وشديد الإحراج (mortifying) هو محرج ومربك (embarrassing)." }
+];
+
+let typeInterval = null;
+let timeAttackLevel = 0;
+let isTimeAttack = false;
+
+function setTimeAttack(level, el) {
+    timeAttackLevel = level;
+    isTimeAttack = (level > 0);
+    document.querySelectorAll('.ta-btn').forEach(btn => btn.classList.remove('active'));
+    if(el) el.classList.add('active');
+}
+
+let quizData = [];
+let currentQuestion = 0, userAnswers = {}, studentName = "", selectedAvatar = '💎';
+let totalSeconds = 96 * 240, qTimeLeft = 15, timerInterval = null;
+let isSubmitting = false; 
+let pauseCount = 0, isPaused = false; 
+let cheatWarningsCount = 0;
+
+document.addEventListener("visibilitychange", () => {
+    const quizScreen = document.getElementById("quiz-screen");
+    if (document.hidden && quizScreen && quizScreen.style.display === "block" && !isSubmitting) {
+        cheatWarningsCount++;
+        if (cheatWarningsCount > 3) {
+            alert("🚨 SYSTEM OVERRIDE: تم سحب الورقة لعدم الالتزام ببروتوكول التركيز.");
+            calculateScore(); 
+        } else {
+            const msgEl = document.getElementById('cheat-msg');
+            if(msgEl) msgEl.innerText = `تم رصد خروجك من النظام.\nالتحذير (${cheatWarningsCount} من 3).\nفي المرة الرابعة سيتم سحب الورقة إجبارياً.`;
+            const modalEl = document.getElementById('cheat-modal');
+            if(modalEl) modalEl.style.display = 'flex';
+            soundWrongTime();
+        }
+    }
+});
+
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => { if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || (e.ctrlKey && e.key === 'U') || (e.ctrlKey && (e.key === 'c' || e.key === 'v' || e.key === 'x'))) e.preventDefault(); });
+document.addEventListener('copy', e => e.preventDefault()); 
+document.addEventListener('paste', e => e.preventDefault()); 
+document.addEventListener('cut', e => e.preventDefault());
+
+function shuffleArray(array) { 
+    for (let i = array.length - 1; i > 0; i--) { 
+        const j = Math.floor(Math.random() * (i + 1)); 
+        [array[i], array[j]] = [array[j], array[i]]; 
+    } 
+}
+
+function initQuizData() {
+    if (!rawData || rawData.length === 0) return;
+    let tempArray = JSON.parse(JSON.stringify(rawData));
+    shuffleArray(tempArray); 
+    quizData = tempArray.map((item, index) => {
+        let correctText = item.options[item.answer];
+        shuffleArray(item.options); 
+        return { 
+            rule: item.rule || "Vocabulary Rule", 
+            originalQ: item.q, 
+            q: `${index + 1}. ` + item.q.replace(/^\d+\.\s*/, ''), 
+            options: item.options, 
+            answer: item.options.indexOf(correctText), 
+            zatona: item.zatona || item.rule
+        };
+    });
+}
+
+function updateChromaShift() {
+    let themesCount = 5;
+    let itemsPerTheme = Math.ceil(quizData.length / themesCount);
+    let levelIndex = Math.floor(currentQuestion / itemsPerTheme); 
+    if(levelIndex > 4) levelIndex = 4;
+    document.body.className = `theme-${levelIndex + 1}`;
+}
+
+function selectAvatar(el, avatar) { 
+    document.querySelectorAll('.avatar-option').forEach(o => o.classList.remove('selected')); 
+    if(el) el.classList.add('selected'); 
+    selectedAvatar = avatar; 
+}
+
+function toggleTimerView() { 
+    const timerText = document.getElementById("timer-text");
+    if(timerText) timerText.classList.toggle("hidden-timer"); 
+}
+
+function startQuiz() {
+    try {
+        const nameInput = document.getElementById("studentName");
+        const input = nameInput ? nameInput.value.trim() : "";
+        if (!input) { 
+            alert("أدخل اسمك الثلاثي لتبدأ التحدي!"); 
+            if(nameInput) nameInput.focus();
+            return; 
+        }
+        studentName = input; 
+        
+        initQuizData(); 
+        
+        const startScreen = document.getElementById("start-screen");
+        const quizScreen = document.getElementById("quiz-screen");
+        const timerContainer = document.getElementById("timer-container");
+        const eyeContainer = document.getElementById("eye-care-container");
+
+        if(startScreen) startScreen.style.display = "none";
+        if(quizScreen) quizScreen.style.display = "block";
+        if(timerContainer) timerContainer.style.display = "flex";
+        if(eyeContainer) eyeContainer.style.display = "flex";
+        
+        const hudAvatar = document.getElementById("hud-avatar");
+        const hudName = document.getElementById("hud-name");
+        const hudMovingAvatar = document.getElementById("hud-moving-avatar");
+        const printDocStudent = document.getElementById("print-doc-student");
+        const resAvatar = document.getElementById("res-avatar");
+
+        if(hudAvatar) hudAvatar.innerText = selectedAvatar;
+        if(hudName) hudName.innerText = studentName;
+        if(hudMovingAvatar) hudMovingAvatar.innerText = selectedAvatar;
+        if(printDocStudent) printDocStudent.innerText = studentName;
+        if(resAvatar) resAvatar.innerText = selectedAvatar;
+
+        totalSeconds = quizData.length * 240; 
+        if (!isTimeAttack) {
+            let m = Math.floor(totalSeconds / 60), s = totalSeconds % 60;
+            const timerText = document.getElementById("timer-text");
+            if(timerText) timerText.innerText = `${m < 100 ? (m < 10 ? '0'+m : m) : m}:${s < 10 ? '0'+s : s}`;
+        }
+
+        loadQuestion();
+    } catch (error) {}
+}
+
+function loadQuestion() {
+    if (typeInterval) clearInterval(typeInterval);
+    if (timerInterval) clearInterval(timerInterval);
+    updateChromaShift();
+    
+    if(isTimeAttack) { 
+        qTimeLeft = timeAttackLevel; 
+        const timerBox = document.getElementById("timer-box");
+        const timerText = document.getElementById("timer-text");
+        if(timerBox) timerBox.classList.remove("danger"); 
+        if(timerText) timerText.innerText = `00:${qTimeLeft < 10 ? '0' + qTimeLeft : qTimeLeft}`; 
+    }
+
+    const item = quizData[currentQuestion];
+    const optionsList = document.getElementById("options-list");
+    
+    if(optionsList) {
+        optionsList.innerHTML = "";
+        item.options.forEach((opt, oIndex) => {
+            const div = document.createElement("div"); 
+            div.className = "option-item";
+            if (userAnswers[currentQuestion] === oIndex) div.classList.add("selected");
+            const letter = String.fromCharCode(65 + oIndex);
+            div.innerHTML = `<div class="opt-letter">${letter}</div> <div class="opt-text" style="direction: ltr;">${opt}</div>`;
+            div.onclick = () => selectOption(oIndex);
+            optionsList.appendChild(div);
+        });
+    }
+
+    const qTextContent = document.getElementById("question-text-content");
+    if(qTextContent) qTextContent.innerText = item.q;
+
+    const progCount = document.getElementById("progress-count");
+    if(progCount) progCount.innerText = `Q: ${currentQuestion + 1} / ${quizData.length}`;
+    
+    let percentProgress = Math.round(((currentQuestion + 1) / quizData.length) * 100);
+    const energyBar = document.getElementById("energy-bar");
+    if(energyBar) energyBar.style.width = `${percentProgress}%`;
+
+    const prevBtn = document.getElementById("prev-btn");
+    if(prevBtn) {
+        prevBtn.disabled = currentQuestion === 0;
+        if(isTimeAttack) prevBtn.style.display = "none";
+    }
+
+    const nextBtn = document.getElementById("next-btn");
+    const submitBtn = document.getElementById("submit-btn");
+    if(nextBtn) nextBtn.style.display = (currentQuestion === quizData.length - 1) ? "none" : "inline-flex";
+    if(submitBtn) submitBtn.style.display = (currentQuestion === quizData.length - 1) ? "inline-flex" : "none";
+    
+    startTimer();
+}
+
+function selectOption(oIndex) { 
+    userAnswers[currentQuestion] = oIndex; 
+    const optionsList = document.getElementById("options-list"); 
+    if(optionsList) {
+        Array.from(optionsList.children).forEach((child, i) => { 
+            if(i === oIndex) child.classList.add("selected"); 
+            else child.classList.remove("selected"); 
+        }); 
+    }
+}
+
+function nextQuestion(force = false) {
+    if (!force && userAnswers[currentQuestion] === undefined) { 
+        alert("لازم تختار إجابة الأول عشان تكمل!"); 
+        return; 
+    }
+    if (currentQuestion < quizData.length - 1) { 
+        currentQuestion++; 
+        if (currentQuestion % 4 === 0 && currentQuestion !== 0) triggerTeacherCheer(); 
+        loadQuestion(); 
+    }
+}
+
+function prevQuestion() { 
+    if (currentQuestion > 0) { 
+        currentQuestion--; 
+        loadQuestion(); 
+    } 
+}
+
+function togglePause() {
+    const pauseModal = document.getElementById('pause-modal');
+    if (isPaused) { 
+        isPaused = false; 
+        if(pauseModal) pauseModal.style.display = 'none'; 
+        startTimer(); 
+    } else {
+        if (pauseCount >= 3) { 
+            alert("استنفدت كل محاولات الإيقاف (3/3)!"); 
+            return; 
+        }
+        isPaused = true; 
+        pauseCount++; 
+        if(timerInterval) clearInterval(timerInterval);
+        
+        const pauseMsg = document.getElementById('pause-count-msg');
+        if(pauseMsg) pauseMsg.innerText = `استخدمت (${pauseCount} من 3) محاولات الإيقاف.`;
+        if(pauseModal) pauseModal.style.display = 'flex';
+    }
+}
+
+function startTimer() {
+    if (timerInterval) clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        if (isPaused) return;
+        if(isTimeAttack) {
+            qTimeLeft--;
+            const timerText = document.getElementById("timer-text");
+            const timerBox = document.getElementById("timer-box");
+            if(timerText) timerText.innerText = `00:${qTimeLeft < 10 ? '0' + qTimeLeft : qTimeLeft}`;
+            if (qTimeLeft <= 5) {
+                if(timerBox) timerBox.classList.add("danger");
+                const appContainer = document.getElementById("app-container");
+                if(appContainer) {
+                    appContainer.classList.add("shake-active");
+                    setTimeout(()=> appContainer.classList.remove("shake-active"), 400);
+                }
+            } else { 
+                if(timerBox) timerBox.classList.remove("danger"); 
+            }
+            if (qTimeLeft <= 0) { 
+                if(userAnswers[currentQuestion] === undefined) { userAnswers[currentQuestion] = -1; } 
+                if(currentQuestion < quizData.length - 1) { nextQuestion(true); } 
+                else { calculateScore(); } 
+            }
+        } else {
+            totalSeconds--;
+            let m = Math.floor(totalSeconds / 60), s = totalSeconds % 60;
+            const timerText = document.getElementById("timer-text");
+            const timerBox = document.getElementById("timer-box");
+            if(timerText) timerText.innerText = `${m < 100 ? (m < 10 ? '0'+m : m) : m}:${s < 10 ? '0'+s : s}`;
+            if (totalSeconds <= 300) { 
+                if(timerBox) timerBox.classList.add("danger"); 
+                if(totalSeconds % 2 === 0 && timerBox) { 
+                    timerBox.classList.add("shake-active"); 
+                    setTimeout(()=> timerBox.classList.remove("shake-active"), 400); 
+                } 
+            } else { 
+                if(timerBox) timerBox.classList.remove("danger"); 
+            }
+            if (totalSeconds <= 0) { 
+                if(timerInterval) clearInterval(timerInterval); 
+                calculateScore(); 
+            }
+        }
+    }, 1000);
+}
+
+function calculateScore() {
+    if(isSubmitting) return; 
+    isSubmitting = true;
+    try {
+        if (timerInterval) clearInterval(timerInterval);
+        
+        const startBody = document.getElementById("start-body");
+        const timerContainer = document.getElementById("timer-container");
+        const eyeContainer = document.getElementById("eye-care-container");
+        const resultScreen = document.getElementById("result-screen");
+
+        if(startBody) startBody.style.display = "none";
+        if(timerContainer) timerContainer.style.display = "none";
+        if(eyeContainer) eyeContainer.style.display = "none";
+        if(resultScreen) resultScreen.style.display = "block";
+        window.scroll({ top: 0, left: 0 });
+
+        let score = 0; 
+        const reviewList = document.getElementById("review-list"); 
+        if(reviewList) reviewList.innerHTML = "";
+        
+        let printQList = document.getElementById("print-q-list"); 
+        if(printQList) printQList.innerHTML = "";
+        
+        let omrGrid = document.getElementById("omr-grid"); 
+        if(omrGrid) omrGrid.innerHTML = "";
+
+        let wrongAnswersHTML = ""; 
+        let ruleMistakes = {};
+
+        quizData.forEach((item, index) => {
+            const isCorrect = userAnswers[index] === item.answer;
+            if (isCorrect) { score++; } 
+            else { ruleMistakes[item.rule] = (ruleMistakes[item.rule] || 0) + 1; }
+            
+            let userOptText = "لم يتم الحل ❌"; 
+            let emailUserOptText = "Not answered ❌";
+            if (userAnswers[index] !== undefined && userAnswers[index] !== -1) { 
+                userOptText = item.options[userAnswers[index]]; 
+                emailUserOptText = item.options[userAnswers[index]]; 
+            }
+            const correctOpt = item.options[item.answer];
+
+            if (!isCorrect) {
+                wrongAnswersHTML += `<div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px solid rgba(244, 63, 94, 0.2);">
+                    <div style="direction: ltr; text-align: left; font-weight: bold; color: #F59E0B; margin-bottom: 8px; font-size: 16px;">Q: ${item.originalQ}</div>
+                    <div style="direction: ltr; text-align: left; color: #F43F5E; font-size: 15px; margin-bottom: 4px;">❌ Student's Answer: ${emailUserOptText}</div>
+                    <div style="direction: ltr; text-align: left; color: #10B981; font-size: 15px; margin-bottom: 10px;">✅ Correct Answer: ${correctOpt}</div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 6px; border-left: 4px solid #F59E0B;">
+                        <div style="direction: ltr; text-align: left; color: #A1A1AA; font-family: 'Outfit'; font-size: 14px; margin-bottom: 8px;">💡 Explanation: ${item.rule}</div>
+                        <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.05); border-bottom: 1px dashed rgba(245, 158, 11, 0.2); margin: 8px 0;"></div>
+                        <div style="direction: rtl; text-align: right; color: #FFF; font-family: 'Cairo'; font-size: 14px; font-weight: bold; margin-top: 8px;">✨ الزتونة: ${item.zatona}</div>
+                    </div>
+                </div>`;
+            }
+
+            /* Print Master Engine Data Injection */
+            let printOptionsHTML = '<div class="print-options-grid">';
+            item.options.forEach((opt, idx) => {
+                let isCorrectOptClass = (idx === item.answer) ? 'is-correct-opt' : '';
+                printOptionsHTML += `<div class="print-opt-item ${isCorrectOptClass}"><div class="print-opt-letter">${String.fromCharCode(65 + idx)}</div><span class="print-opt-text">${opt}</span></div>`;
+            });
+            printOptionsHTML += '</div>';
+
+            let printItemHTML = `
+                <div class="print-q-item ${isCorrect ? 'ans-correct' : 'ans-wrong'}">
+                    <div class="print-q-text">${item.q}</div>
+                    ${printOptionsHTML}
+                    <div class="print-rule-box">💡 الزتونة: ${item.zatona}</div>
+                </div>
+            `;
+            if(printQList) printQList.innerHTML += printItemHTML;
+
+            let omrRowHTML = `<div class="omr-row"><div class="omr-q-num">${index + 1}.</div><div class="omr-bubbles">`;
+            for(let b=0; b<4; b++){
+                let isCorrectBubble = (b === item.answer) ? 'is-correct-bubble' : '';
+                omrRowHTML += `<div class="omr-bubble ${isCorrectBubble}">${String.fromCharCode(65 + b)}</div>`;
+            }
+            omrRowHTML += `</div></div>`;
+            if(omrGrid) omrGrid.innerHTML += omrRowHTML;
+
+            const div = document.createElement("div");
+            div.className = `review-item ${isCorrect ? 'is-correct' : 'is-wrong'}`;
+            div.innerHTML = `
+                <div style="font-weight:800; font-size:16px; margin-bottom:8px; direction: ltr; color: var(--text-main);">${item.q}</div>
+                <div class="ui-ans-box">
+                    <div style="direction: rtl; color: var(--text-muted);">إجابتك: <div style="color:${isCorrect?'var(--success-color)':'var(--error-color)'}; direction: ltr; display: inline-block; font-weight: 800;">${userOptText}</div></div>
+                    ${!isCorrect ? `<div style="color:var(--success-color); font-weight:800; margin-top:4px; direction: rtl;">الإجابة الصحيحة: <div style="direction: ltr; display: inline-block;">${correctOpt}</div></div>` : ''}
+                </div>
+                <div class="explanation-box">
+                    <div style="direction: ltr; text-align: left; color: var(--text-muted); font-family: 'Outfit'; font-size: 16px; font-weight: 600; line-height: 1.6;">💡 Explanation: ${item.rule}</div>
+                    <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.05); border-bottom: 1px dashed rgba(255,255,255,0.1); margin: 8px 0;"></div>
+                    <div style="direction: rtl; text-align: right; color: #FFF; font-weight: 700; font-size: 16px; line-height: 1.7;">✨ الزتونة: ${item.zatona}</div>
+                </div>
+            `;
+            if(reviewList) reviewList.appendChild(div);
+        });
+
+        const percent = Math.round((score / quizData.length) * 100);
+        window.finalScore = score; 
+        window.finalPercent = percent;
+
+        let weakestRule = "لا يوجد أخطاء 🏆"; 
+        let maxMistakes = 0;
+        for (let r in ruleMistakes) { 
+            if (ruleMistakes[r] > maxMistakes) { 
+                maxMistakes = ruleMistakes[r]; 
+                weakestRule = r; 
+            } 
+        }
+        if(wrongAnswersHTML === "") wrongAnswersHTML = "الطالب قفل التقييم بامتياز! مفيش ولا غلطة 🏆";
+
+        document.body.className = "theme-1"; 
+        
+        const resName = document.getElementById("res-name");
+        const printScoreOut = document.getElementById("print-score-out");
+        const scorePercentage = document.getElementById("score-percentage");
+        const scorePercentText = document.getElementById("score-percent-text");
+        const scoreDetails = document.getElementById("score-details");
+        const badgeAwardBox = document.getElementById("badge-award-box");
+        const certBtn = document.getElementById("cert-btn");
+
+        if(resName) resName.innerText = studentName;
+        if(printScoreOut) printScoreOut.innerText = `${score} / ${quizData.length}`;
+        if(scorePercentage) scorePercentage.innerText = `${score} / ${quizData.length}`;
+        if(scorePercentText) scorePercentText.innerText = `Accuracy: ${percent}%`;
+        
+        let modTxt = isTimeAttack ? " (Time Attack 🔥)" : "";
+        if(scoreDetails) scoreDetails.innerText = `تم إنهاء التقييم بنجاح! ${modTxt}`;
+
+        let badge = percent >= 90 ? "👑 النخبة (Elite)" : percent >= 75 ? "🔥 أداء متميز (Pro)" : "🌱 محاولة مبشرة (Challenger)";
+        if(badgeAwardBox) badgeAwardBox.innerText = badge;
+        
+        if (percent >= 80 && certBtn) certBtn.style.display = "inline-flex";
+
+        try { soundBossWin(); } catch(e){}
+        try { initScratchCard(); } catch(e){}
+        try { 
+            let confColor = getComputedStyle(document.body).getPropertyValue('--accent').trim() || '#F59E0B'; 
+            if (percent >= 80 && typeof confetti === 'function') {
+                confetti({ particleCount: 300, spread: 150, origin: { y: 0.6 }, colors: ['#0A0A0A', confColor, '#F8FAFC'], zIndex: 999999 }); 
+            }
+        } catch(e){}
+
+        try {
+            let usedTime = isTimeAttack ? "Time Attack" : ( (quizData.length * 240) - totalSeconds) + "s";
+            let payload = new URLSearchParams({ 
+                examName: "ELITE CHALLENGE - CODE: VOC-MAS-96", 
+                studentName: studentName, 
+                score: `${score} / ${quizData.length}`, 
+                percentage: percent, 
+                date: new Date().toLocaleString('en-GB'), 
+                timeSpent: usedTime, 
+                wrongAnswers: wrongAnswersHTML, 
+                cheatWarnings: cheatWarningsCount, 
+                weakestRule: weakestRule 
+            });
+            fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: payload }).catch(err => {});
+        } catch(e){}
+
+    } catch(e) { 
+        console.error("Score calculation error: ", e);
+        document.getElementById("quiz-screen").style.display = "none";
+        document.getElementById("result-screen").style.display = "block";
+        document.getElementById("score-percentage").innerText = "تم التسليم";
+        document.getElementById("score-details").innerText = "تم حفظ التقييم بنجاح.";
+    }
+}
+
+function shareToParentWhatsApp() { 
+    let txt = `👨‍👩‍👧 تقرير أداء - التحدي الأكبر\n👤 الطالب: ${studentName}\n📊 النسبة: ${window.finalPercent}%\n✨ تحت إشراف مستر أيمن كامل.`; 
+    window.open(`https://wa.me/?text=${encodeURIComponent(txt)}`, '_blank'); 
+}
+function shareToTeacherWhatsApp() { 
+    let txt = `👨‍🏫 تقرير تسليم - التحدي الأكبر\n👤 الطالب: ${studentName}\n🎯 الدرجة: ${window.finalScore} / ${quizData.length}\n📊 النسبة: ${window.finalPercent}%`; 
+    window.open(`https://wa.me/201284749899?text=${encodeURIComponent(txt)}`, '_blank'); 
+}
+
+function downloadCertificate() {
+    const canvas = document.createElement('canvas'); 
+    canvas.width = 1000; 
+    canvas.height = 700; 
+    const ctx = canvas.getContext('2d');
+    let accent = getComputedStyle(document.body).getPropertyValue('--accent').trim() || '#F59E0B';
+    
+    ctx.fillStyle = '#0A0A0A'; 
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.save(); 
+    ctx.translate(canvas.width / 2, canvas.height / 2); 
+    ctx.rotate(-Math.PI / 6); 
+    ctx.globalAlpha = 0.04; 
+    ctx.font = "bold 110px 'Outfit'"; 
+    ctx.fillStyle = accent; 
+    ctx.textAlign = "center"; 
+    ctx.textBaseline = "middle"; 
+    ctx.fillText("MR. AYMAN KAMEL", 0, -60); 
+    ctx.fillText("OBSIDIAN ELITE", 0, 70); 
+    ctx.restore();
+    
+    ctx.strokeStyle = accent; 
+    ctx.lineWidth = 10; 
+    ctx.strokeRect(30, 30, canvas.width - 60, canvas.height - 60); 
+    ctx.globalAlpha = 0.2; 
+    ctx.lineWidth = 3; 
+    ctx.strokeRect(42, 42, canvas.width - 84, canvas.height - 84); 
+    ctx.globalAlpha = 1.0;
+    
+    ctx.textAlign = "center"; 
+    ctx.fillStyle = accent; 
+    ctx.font = "bold 45px 'Outfit'"; 
+    ctx.fillText("✨ Certificate of Ultimate Mastery ✨", canvas.width / 2, 120);
+    
+    ctx.fillStyle = "#A1A1AA"; 
+    ctx.font = "30px 'Outfit'"; 
+    ctx.fillText("This prestigious document is awarded to the elite student:", canvas.width / 2, 220);
+    
+    ctx.fillStyle = "#F8FAFC"; 
+    ctx.font = "bold 65px 'Cairo'"; 
+    ctx.fillText(studentName, canvas.width / 2, 320);
+    
+    ctx.fillStyle = "#A1A1AA"; 
+    ctx.font = "25px 'Outfit'"; 
+    ctx.fillText(`For successfully decoding the "Elite Challenge" with an accuracy of`, canvas.width / 2, 420);
+    
+    ctx.fillStyle = "#10B981"; 
+    ctx.font = "bold 55px 'Outfit'"; 
+    ctx.fillText(`${window.finalScore} / ${quizData.length}  (${window.finalPercent}%)`, canvas.width / 2, 500);
+    
+    ctx.fillStyle = accent; 
+    ctx.font = "22px 'Outfit'"; 
+    ctx.fillText("System Architect: Mr. Ayman Kamel", canvas.width / 2, 600);
+    
+    let d = new Date(); 
+    ctx.font = "18px 'Outfit'"; 
+    ctx.fillText("Issue Date: " + d.toLocaleDateString('en-GB'), canvas.width / 2, 640);
+    
+    ctx.globalAlpha = 0.6; 
+    ctx.textAlign = "left"; 
+    ctx.font = "16px 'Outfit'"; 
+    ctx.fillText("ID: VOC-" + d.getFullYear() + "-" + Math.floor(Math.random()*90000+10000), 55, 655); 
+    ctx.globalAlpha = 1.0;
+    
+    const link = document.createElement('a'); 
+    link.download = `Vocabulary_Mastery_${studentName}.png`; 
+    link.href = canvas.toDataURL('image/png'); 
+    link.click();
+}
+</script>
+</body>
+</html>
